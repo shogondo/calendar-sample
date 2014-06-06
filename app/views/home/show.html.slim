@@ -1,0 +1,16 @@
+.row
+  .col-lg-12 style="margin-bottom: 16px"
+    .text-center
+      span style="font-size: 24px;"
+        = @date.strftime("%Y年%m月")
+    .text-right
+      a.btn.btn-default href="?date=#{@date - 1.month}"
+        | 前月
+      a.btn.btn-default href="?date=#{@date + 1.month}"
+        | 次月
+.row
+  .col-lg-12
+    = bootstrap_calendar @date, @calendar_options do |date|
+      a href="#" style="display: block"
+        span.pull-right data-cal-date="some" data-cal-view="day"
+          = date.day.to_s

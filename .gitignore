@@ -1,0 +1,14 @@
+*.sw?
+.DS_Store
+
+/.bundle
+/.rspec
+/.yardoc
+/config/database.yml
+/config/secrets.yml
+/coverage
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/log/*.log
+/tmp
+/vendor/bundle
