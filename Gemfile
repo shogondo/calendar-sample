@@ -15,3 +15,5 @@ gem 'therubyracer',  platforms: :ruby
 gem 'less-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem "bootstrap_calendar_rails"
+
+gem 'bootstrap_form'

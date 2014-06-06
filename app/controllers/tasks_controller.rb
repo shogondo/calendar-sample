@@ -13,6 +13,9 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    if params[:date].present?
+      @task.date = Date.parse(params[:date])
+    end
   end
 
   # GET /tasks/1/edit
@@ -24,7 +27,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to @task, notice: 'Task was successfully created.'
+      redirect_to home_path, notice: "タスクを登録しました"
     else
       render :new
     end
@@ -33,7 +36,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
-      redirect_to @task, notice: 'Task was successfully updated.'
+      redirect_to home_path, notice: "タスクを更新しました"
     else
       render :edit
     end

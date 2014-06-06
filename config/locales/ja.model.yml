@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      task:
+        name: タイトル
+        description: 詳細
+        date: 日付

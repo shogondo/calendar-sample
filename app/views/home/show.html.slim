@@ -1,16 +1,29 @@
 .row
-  .col-lg-12 style="margin-bottom: 16px"
+  .col-lg-12
     .text-center
       span style="font-size: 24px;"
         = @date.strftime("%Y年%m月")
+.row
+  .col-md-6
+    = link_to new_task_path, class: "btn btn-success"
+      | 新しいタスクを作成
+  .col-md-6
     .text-right
-      a.btn.btn-default href="?date=#{@date - 1.month}"
+      a.btn.btn-info href="?date=#{@date - 1.month}"
         | 前月
-      a.btn.btn-default href="?date=#{@date + 1.month}"
+      a.btn.btn-info href="?date=#{@date + 1.month}"
         | 次月
+br
 .row
   .col-lg-12
     = bootstrap_calendar @date, @calendar_options do |date|
-      a href="#" style="display: block"
-        span.pull-right data-cal-date="some" data-cal-view="day"
-          = date.day.to_s
+      span.pull-right data-cal-date="some" data-cal-view="day"
+        = date.day.to_s
+      - if Task.where(date: date).exists?
+        br
+        - for task in Task.where(date: date)
+          ul style="margin:0px 24px;padding:0"
+            li title="#{task.description}" data-toggle="tooltip" data-placement="left"
+              span style="font-size: 10px"
+                = link_to edit_task_path(task.id) do
+                  = truncate task.name, length: 14
