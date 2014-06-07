@@ -18,8 +18,6 @@ html lang="en"
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
 
-
-
   body
     .navbar.navbar-default.navbar-static-top
         .container
@@ -34,7 +32,19 @@ html lang="en"
 
     .container
       .row
-        .col-md-12.col-lg-12
+        .col-md-2.col-lg-2
+          ul
+            li
+              a href="#" XXX
+            li
+              a href="#" XXX
+            li
+              a href="#" XXX
+            li
+              a href="#" XXX
+            li
+              a href="#" XXX
+        .col-md-10.col-lg-10
           = bootstrap_flash
           = yield
 

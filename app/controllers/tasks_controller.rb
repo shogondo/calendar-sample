@@ -20,6 +20,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @tasks = Task.all
   end
 
   # POST /tasks
